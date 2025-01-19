@@ -17,27 +17,19 @@ jobs:
           version: 3.0.2
       - name: create default flutter project
         run: flutter create example
-      
-      - name: print working dir
-        run: pwd
-      
-      - name: list directory
-        run: ls
-        
-      - name: enter directory
-        run: cd example
-
-      - name: print working dir
-        run: pwd
-      
-      - name: list directory
-        run: ls
-        
+               
       - name: Install dependencies
-        run: flutter pub get
+        run: |
+          cd example
+          flutter pub get
+          
 
       - name: Analyze project source
-        run: dart analyze
+        run: |
+          cd example
+          dart analyze
 
       - name: Run tests
-        run: flutter test
+        run: |
+          cd example
+          flutter test
